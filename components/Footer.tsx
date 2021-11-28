@@ -1,5 +1,5 @@
-import Image from "next/image";
-import styles from "./Footer.module.scss";
+import Image from 'next/image'
+import styles from './Footer.module.scss'
 
 export default function Footer() {
   return (
@@ -13,7 +13,9 @@ export default function Footer() {
           className={styles.logo}
           layout="fixed"
         />
+        &nbsp;Code available in&nbsp;
+        <a href="https://github.com/zestzero/kritb-next-netlify">Github</a>
       </footer>
     </>
-  );
+  )
 }
