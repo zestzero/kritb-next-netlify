@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Link from 'next/link'
-import Header from '@components/Header'
+import Header from '@components/Header/Header'
 import Footer from '@components/Footer'
 import { getAllPosts } from 'lib/postApi'
 import { Post } from 'types/post'
@@ -14,7 +14,7 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
       </Head>
 
       <main>
-        <Header title="Welcome!" />
+        <Header />
         <p className="description">😋</p>
       </main>
       {allPosts && (
