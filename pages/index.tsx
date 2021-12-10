@@ -1,8 +1,11 @@
-import Head from "next/head";
-import Header from "@components/Header";
-import Footer from "@components/Footer";
+import Head from 'next/head'
+import Link from 'next/link'
+import Header from '@components/Header'
+import Footer from '@components/Footer'
+import { getAllPosts } from 'lib/postApi'
+import { Post } from 'types/post'
 
-export default function Home() {
+export default function Home({ allPosts }: { allPosts: Post[] }) {
   return (
     <div className="container">
       <Head>
@@ -14,8 +17,29 @@ export default function Home() {
         <Header title="Welcome!" />
         <p className="description">😋</p>
       </main>
-
+      {allPosts && (
+        <Link href={`/posts/${allPosts[0].slug}`} passHref={true}>
+          <a>
+            {allPosts[0].title} : {new Date(allPosts[0].date).toDateString()}
+          </a>
+        </Link>
+      )}
       <Footer />
     </div>
-  );
+  )
+}
+
+export async function getStaticProps() {
+  const allPosts = getAllPosts([
+    'title',
+    'date',
+    'slug',
+    'author',
+    'coverImage',
+    'excerpt',
+  ])
+
+  return {
+    props: { allPosts },
+  }
 }
