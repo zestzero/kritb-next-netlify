@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link'
 import Header from '@components/Header'
 import Footer from '@components/Footer'
 import { getAllPosts } from 'lib/postApi'
@@ -17,9 +18,11 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
         <p className="description">😋</p>
       </main>
       {allPosts && (
-        <div>
-          {allPosts[0].title} : {new Date(allPosts[0].date).toDateString()}
-        </div>
+        <Link href={`/posts/${allPosts[0].slug}`} passHref={true}>
+          <a>
+            {allPosts[0].title} : {new Date(allPosts[0].date).toDateString()}
+          </a>
+        </Link>
       )}
       <Footer />
     </div>

@@ -14,4 +14,6 @@ export interface Post {
   date?: string
   author?: Author
   ogImage?: OgImage
+  slug?: string
+  content?: string
 }

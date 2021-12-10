@@ -34,7 +34,7 @@ export const getPostBySlug = (slug: string, fields: string[] = []): Post => {
   return items
 }
 
-export const getAllPosts = (fields: string[] = []) => {
+export const getAllPosts = (fields: string[] = []): Post[] => {
   const slugs = getPostSlugs()
   const posts = slugs
     .map((slug) => getPostBySlug(slug, fields))
