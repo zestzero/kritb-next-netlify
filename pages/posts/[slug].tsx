@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import { getPostBySlug, getAllPosts } from '../../lib/postApi'
-import { markdownToHtml } from '../../lib/markdownToHtml'
+import { getPostBySlug, getAllPosts } from 'lib/postApi'
+import { markdownToHtml } from 'lib/markdownToHtml'
 
 export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
