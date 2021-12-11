@@ -1,20 +1,20 @@
-import Image from 'next/image'
+import Icon from 'components/commons/Icon/Icon'
 import styles from './Footer.module.scss'
 
 export default function Footer() {
   return (
     <>
       <footer className={styles.footer}>
-        <Image
-          src="/logo.png"
-          alt="Netlify Logo"
-          width={25}
-          height={25}
-          className={styles.logo}
-          layout="fixed"
+        <Icon
+          iconName="github"
+          size={24}
+          href="https://github.com/zestzero/kritb-next-netlify"
         />
-        &nbsp;Code available in&nbsp;
-        <a href="https://github.com/zestzero/kritb-next-netlify">Github</a>
+        <Icon
+          iconName="linkedin"
+          size={24}
+          href="https://www.linkedin.com/in/krit-bannachaisirisuk"
+        />
       </footer>
     </>
   )

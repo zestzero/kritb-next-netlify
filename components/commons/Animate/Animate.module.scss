@@ -1,0 +1,7 @@
+@import '../../../styles/animations/text-focus-in-contract.scss';
+
+.focus-in-contract {
+  -webkit-animation: focus-in-contract 1s cubic-bezier(0.55, 0.085, 0.68, 0.53)
+    both;
+  animation: focus-in-contract 1s cubic-bezier(0.55, 0.085, 0.68, 0.53) both;
+}

@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Link from 'next/link'
+
 import Header from 'components/Header/Header'
 import Footer from 'components/Footer/Footer'
 import { getAllPosts } from 'lib/postApi'
 import { Post } from 'types/post'
+import Animate from 'components/commons/Animate/Animate'
+import Posts from 'components/Posts/Posts'
 
 export default function Home({ allPosts }: { allPosts: Post[] }) {
   return (
@@ -15,13 +17,10 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
 
       <main>
         <Header />
-        {allPosts && (
-          <Link href={`/posts/${allPosts[0].slug}`} passHref={true}>
-            <a>
-              {allPosts[0].title} : {new Date(allPosts[0].date).toDateString()}
-            </a>
-          </Link>
-        )}
+        <Animate animate="focus-in-contract">
+          <h1>KRIT BANNACHAISIRISUK</h1>
+        </Animate>
+        <Posts posts={allPosts} />
       </main>
       <Footer />
     </div>
