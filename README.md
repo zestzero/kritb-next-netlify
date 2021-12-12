@@ -20,3 +20,4 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [Website icon](https://favicon.io/favicon-generator/) - Thank you for your awesome tool!
 - [A statically generated blog example using Next.js and Markdown](https://github.com/vercel/next.js/tree/canary/examples/blog-starter)
+- [Sample Github workflow](https://github.com/gothinkster/dojo-realworld-example-app/blob/main/.github/workflows/ci-cd.yml)

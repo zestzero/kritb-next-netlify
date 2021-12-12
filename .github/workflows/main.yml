@@ -28,23 +28,41 @@ jobs:
     steps:
       - uses: kerhub/saved-replies@v1.0.0
         with:
-          token: "${{ secrets.GITHUB_TOKEN }}"
+          token: '${{ secrets.GITHUB_TOKEN }}'
           reply: |
             Hi @${{ github.event.pull_request.user.login }}, thanks for being part of the community :heart:
             We'll review your contribution as soon as possible!
   prettier:
-    uses: kerhub/reusable-workflows/.github/workflows/node-job.yml@main
-    with:
-      command: npm run prettier --check \"**\"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.4.1
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run prettier --check \"**\"
   linter:
-    uses: kerhub/reusable-workflows/.github/workflows/node-job.yml@main
-    with:
-      command: npx eslint --fix src/**/*.ts
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.4.1
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm ci
+      - run: npx eslint --fix src/**/*.ts
   unit_tests:
     name: 'unit tests'
-    uses: kerhub/reusable-workflows/.github/workflows/node-job.yml@main
-    with:
-      command: npm run test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2.4.1
+        with:
+          node-version: '14'
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test
   deploy_preview:
     name: 'deploy preview'
     if: github.event_name == 'pull_request'
@@ -53,9 +71,9 @@ jobs:
     with:
       build_directory: './output/dist'
     secrets:
-      netlifyAuthToken: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
-      netlifySiteId: "${{ secrets.NETLIFY_SITE_ID }}"
-      repoToken: "${{ secrets.GITHUB_TOKEN }}"
+      netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
+      netlifySiteId: '${{ secrets.NETLIFY_SITE_ID }}'
+      repoToken: '${{ secrets.GITHUB_TOKEN }}'
   deploy_live:
     name: 'deploy live'
     if: github.event_name == 'push'
@@ -64,8 +82,8 @@ jobs:
     with:
       build_directory: './output/dist'
     secrets:
-      netlifyAuthToken: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
-      netlifySiteId: "${{ secrets.NETLIFY_SITE_ID }}"
+      netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
+      netlifySiteId: '${{ secrets.NETLIFY_SITE_ID }}'
   lighthouse_preview:
     name: 'lighthouse preview'
     needs: deploy_preview
@@ -73,7 +91,7 @@ jobs:
     with:
       siteName: 'kritb'
     secrets:
-      netlifyAuthToken: "${{ secrets.NETLIFY_AUTH_TOKEN }}"
+      netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
   lighthouse_live:
     name: 'lighthouse live'
     needs: deploy_live
