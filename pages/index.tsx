@@ -1,10 +1,10 @@
 import Head from 'next/head'
 
-import Header from 'components/Header/Header'
-import Footer from 'components/Footer/Footer'
+import Header from 'components/commons/Header/Header'
+import Footer from 'components/commons/Footer/Footer'
 import { getAllPosts } from 'lib/postApi'
 import { Post } from 'types/post'
-import Animate from 'components/commons/Animate/Animate'
+import Splash from 'components/HomePage/Splash'
 import Posts from 'components/Posts/Posts'
 
 export default function Home({ allPosts }: { allPosts: Post[] }) {
@@ -17,9 +17,7 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
 
       <main>
         <Header />
-        <Animate animate="focus-in-contract">
-          <h1>KRIT BANNACHAISIRISUK</h1>
-        </Animate>
+        <Splash />
         <Posts posts={allPosts} />
       </main>
       <Footer />

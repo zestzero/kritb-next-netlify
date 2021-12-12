@@ -1,8 +1,9 @@
 import { FunctionComponent } from 'react'
 import styles from './Animate.module.scss'
 
+type AnimateType = 'focus-in-contract' | 'text-pop-up-top'
 interface Props {
-  animate: 'focus-in-contract'
+  animate: AnimateType
 }
 
 const Animate: FunctionComponent<Props> = (props) => {
