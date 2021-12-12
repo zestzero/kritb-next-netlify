@@ -7,9 +7,9 @@ interface Props {
 }
 
 const Posts: FunctionComponent<Props> = (props) => {
-  const renderPost = (post: Post) => {
+  const renderPost = (post: Post, index: number) => {
     return (
-      <Link href={`/posts/${post.slug}`} passHref={true}>
+      <Link key={`post-${index}`} href={`/posts/${post.slug}`} passHref={true}>
         <a>
           {post.title} : {new Date(post.date).toDateString()}
         </a>
