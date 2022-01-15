@@ -55,7 +55,6 @@ jobs:
             - run: npm run test
     lighthouse_preview:
         name: 'lighthouse preview'
-        needs: deploy_preview
         uses: kerhub/reusable-workflows/.github/workflows/lighthouse-preview.yml@main
         with:
             siteName: 'kritb'
@@ -63,7 +62,6 @@ jobs:
             netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
     lighthouse_live:
         name: 'lighthouse live'
-        needs: deploy_live
         uses: kerhub/reusable-workflows/.github/workflows/lighthouse-live.yml@main
         with:
             siteUrl: 'https://kritb.netlify.app/'
