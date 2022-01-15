@@ -53,15 +53,15 @@ jobs:
                   cache: 'npm'
             - run: npm ci
             - run: npm run test
-    lighthouse_preview:
-        name: 'lighthouse preview'
-        uses: kerhub/reusable-workflows/.github/workflows/lighthouse-preview.yml@main
-        with:
-            siteName: 'kritb'
-        secrets:
-            netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
-    lighthouse_live:
-        name: 'lighthouse live'
-        uses: kerhub/reusable-workflows/.github/workflows/lighthouse-live.yml@main
-        with:
-            siteUrl: 'https://kritb.netlify.app/'
+    # lighthouse_preview:
+    #     name: 'lighthouse preview'
+    #     uses: kerhub/reusable-workflows/.github/workflows/lighthouse-preview.yml@main
+    #     with:
+    #         siteName: 'kritb'
+    #     secrets:
+    #         netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
+    # lighthouse_live:
+    #     name: 'lighthouse live'
+    #     uses: kerhub/reusable-workflows/.github/workflows/lighthouse-live.yml@main
+    #     with:
+    #         siteUrl: 'https://kritb.netlify.app/'
