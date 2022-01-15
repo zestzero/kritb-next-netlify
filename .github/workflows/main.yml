@@ -53,27 +53,6 @@ jobs:
                   cache: 'npm'
             - run: npm ci
             - run: npm run test
-    deploy_preview:
-        name: 'deploy preview'
-        if: github.event_name == 'pull_request'
-        needs: [linter, unit_tests]
-        uses: kerhub/reusable-workflows/.github/workflows/netlify-preview-deploy.yml@main
-        with:
-            build_directory: './output/dist'
-        secrets:
-            netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
-            netlifySiteId: '${{ secrets.NETLIFY_SITE_ID }}'
-            repoToken: '${{ secrets.GITHUB_TOKEN }}'
-    deploy_live:
-        name: 'deploy live'
-        if: github.event_name == 'push'
-        needs: [linter, unit_tests]
-        uses: kerhub/reusable-workflows/.github/workflows/netlify-live-deploy.yml@main
-        with:
-            build_directory: './output/dist'
-        secrets:
-            netlifyAuthToken: '${{ secrets.NETLIFY_AUTH_TOKEN }}'
-            netlifySiteId: '${{ secrets.NETLIFY_SITE_ID }}'
     lighthouse_preview:
         name: 'lighthouse preview'
         needs: deploy_preview
