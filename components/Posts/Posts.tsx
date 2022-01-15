@@ -1,22 +1,17 @@
 import { FunctionComponent } from 'react'
-import Link from 'next/link'
 import { Post } from 'types/post'
+import Grid from 'components/commons/Grid/Grid'
+import PostItem from './PostItem'
 
 interface Props {
-  posts: Post[]
+    posts: Post[]
 }
 
 const Posts: FunctionComponent<Props> = (props) => {
-  const renderPost = (post: Post, index: number) => {
-    return (
-      <Link key={`post-${index}`} href={`/posts/${post.slug}`} passHref={true}>
-        <a>
-          {post.title} : {new Date(post.date).toDateString()}
-        </a>
-      </Link>
+    const renderPost = (post: Post, index: number) => (
+        <PostItem post={post} index={index} />
     )
-  }
-  return <>{props.posts && props.posts.map(renderPost)}</>
+    return <Grid>{props.posts && props.posts.map(renderPost)}</Grid>
 }
 
 export default Posts
