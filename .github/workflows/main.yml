@@ -56,7 +56,7 @@ jobs:
     deploy_preview:
         name: 'deploy preview'
         if: github.event_name == 'pull_request'
-        needs: [prettier, linter, unit_tests]
+        needs: [linter, unit_tests]
         uses: kerhub/reusable-workflows/.github/workflows/netlify-preview-deploy.yml@main
         with:
             build_directory: './output/dist'
@@ -67,7 +67,7 @@ jobs:
     deploy_live:
         name: 'deploy live'
         if: github.event_name == 'push'
-        needs: [prettier, linter, unit_tests]
+        needs: [linter, unit_tests]
         uses: kerhub/reusable-workflows/.github/workflows/netlify-live-deploy.yml@main
         with:
             build_directory: './output/dist'
