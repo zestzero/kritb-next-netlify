@@ -1,0 +1,33 @@
+@import '../../styles/colors';
+
+.container {
+    background-color: $white;
+    position: relative;
+    cursor: pointer;
+    &:hover {
+        .title {
+            text-decoration: underline;
+        }
+    }
+}
+
+.thumbnail {
+    overflow: hidden;
+    width: 100%;
+    min-height: 250px;
+    position: relative;
+}
+
+.titleContainer {
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    font-weight: 500;
+}
+
+.publishDate {
+    font-size: 0.5rem;
+}

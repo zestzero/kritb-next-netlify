@@ -1,0 +1,10 @@
+@import '../../styles/colors';
+
+.title {
+  padding: 24px;
+  text-align: right;
+  font-size: 4.5vw;
+  color: white;
+  font-family: sans-serif;
+  -webkit-text-stroke: 2px $black;
+}

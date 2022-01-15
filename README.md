@@ -18,5 +18,9 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Credits
 
-- [Website icon](https://favicon.io/favicon-generator/) - Thank you for your awesome tool!
-- [A statically generated blog example using Next.js and Markdown](https://github.com/vercel/next.js/tree/canary/examples/blog-starter)
+-   [Website icon](https://favicon.io/favicon-generator/) - Thank you for your awesome tool!
+-   [A statically generated blog example using Next.js and Markdown](https://github.com/vercel/next.js/tree/canary/examples/blog-starter)
+-   Github/LinkedIn icons by <a href="https://iconscout.com/contributors/unicons">Unicons Font</a> on <a href="https://iconscout.com">Iconscout</a>
+-   [Animation CSS by Animista](http://animista.net)
+-   [Sample Github workflow](https://github.com/gothinkster/dojo-realworld-example-app/blob/main/.github/workflows/ci-cd.yml)
+-   [Default preview image](https://unsplash.com/@joshrh19)

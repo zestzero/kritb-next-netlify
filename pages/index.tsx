@@ -1,9 +1,11 @@
 import Head from 'next/head'
-import Link from 'next/link'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+
+import Header from 'components/commons/Header/Header'
+import Footer from 'components/commons/Footer/Footer'
 import { getAllPosts } from 'lib/postApi'
 import { Post } from 'types/post'
+import Splash from 'components/HomePage/Splash'
+import Posts from 'components/Posts/Posts'
 
 export default function Home({ allPosts }: { allPosts: Post[] }) {
   return (
@@ -14,16 +16,10 @@ export default function Home({ allPosts }: { allPosts: Post[] }) {
       </Head>
 
       <main>
-        <Header title="Welcome!" />
-        <p className="description">😋</p>
+        <Header />
+        <Splash />
+        <Posts posts={allPosts} />
       </main>
-      {allPosts && (
-        <Link href={`/posts/${allPosts[0].slug}`} passHref={true}>
-          <a>
-            {allPosts[0].title} : {new Date(allPosts[0].date).toDateString()}
-          </a>
-        </Link>
-      )}
       <Footer />
     </div>
   )
