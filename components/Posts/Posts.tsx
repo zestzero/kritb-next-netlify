@@ -9,7 +9,7 @@ interface Props {
 
 const Posts: FunctionComponent<Props> = (props) => {
     const renderPost = (post: Post, index: number) => (
-        <PostItem post={post} index={index} />
+        <PostItem key={`PostItem-${index}`} post={post} />
     )
     return <Grid>{props.posts && props.posts.map(renderPost)}</Grid>
 }
