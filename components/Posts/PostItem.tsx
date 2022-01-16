@@ -15,7 +15,9 @@ const PostItem: FunctionComponent<Props> = (props) => {
             <div className={styles.container}>
                 <div className={styles.thumbnail}>
                     <Image
-                        alt="Preview Image from https://unsplash.com/@joshrh19"
+                        placeholder="blur"
+                        blurDataURL="/placeholder.svg"
+                        alt="Preview Image from https://bgjar.com/sprinkle"
                         src={post.coverImage}
                         layout="fill"
                         priority
